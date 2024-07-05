@@ -25,12 +25,10 @@ jobs:
           node-version: 'latest'
       
       - name: Download packages
-        run: |
-          yarn config set "@fortawesome:registry" https://registry.yarnpkg.com  
-          yarn install --production
+        run: npm install --production --always-auth
 
       - name: Build
-        run: yarn run build
+        run: npm run build
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v4
