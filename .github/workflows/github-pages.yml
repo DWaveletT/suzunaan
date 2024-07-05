@@ -25,7 +25,9 @@ jobs:
           node-version: 'latest'
       
       - name: Download packages
-        run: yarn install --production
+        run: |
+          yarn config set "@fortawesome:registry" https://registry.yarnpkg.com  
+          yarn install --production
 
       - name: Build
         run: yarn run build
